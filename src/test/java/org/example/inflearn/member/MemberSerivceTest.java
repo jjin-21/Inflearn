@@ -1,12 +1,18 @@
 package org.example.inflearn.member;
 
 import org.assertj.core.api.Assertions;
+import org.example.inflearn.config.AppConfig;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MemberSerivceTest {
 
-    MemberService memberSerivce = new MemberServiceImpl();
-
+    MemberService memberSerivce;
+    @BeforeEach
+public void beforeEach() {
+    AppConfig appConfig = new AppConfig();
+    memberSerivce = appConfig.memberService();
+    }
     @Test
     void join() {
         //given

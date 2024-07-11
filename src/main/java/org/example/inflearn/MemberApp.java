@@ -1,14 +1,15 @@
 package org.example.inflearn;
 
+import org.example.inflearn.config.AppConfig;
 import org.example.inflearn.member.Grade;
 import org.example.inflearn.member.Member;
 import org.example.inflearn.member.MemberService;
-import org.example.inflearn.member.MemberServiceImpl;
 
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService  = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
 
